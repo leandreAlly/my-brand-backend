@@ -88,6 +88,8 @@ router.post('/', auth, articleCtrl.createArticle);
   *               $ref: '#/components/schemas/Article'
   *       400:
   *         description: Some server error
+  *       security:
+  *        -bearerToken: []
   */
 
 router.get('/:id',auth,articleCtrl.getOneArticle);
@@ -113,6 +115,8 @@ router.get('/:id',auth,articleCtrl.getOneArticle);
  *               $ref: '#/components/schemas/Article'
  *       404:
  *         description: The Article was not found
+ *      
+ *        
  */
 router.put('/:id', auth,articleCtrl.modifyArticle);
 

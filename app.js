@@ -22,22 +22,42 @@ mongoose.connect("mongodb+srv://leandre:Ally0788!@cluster0.vnywd.mongodb.net/myF
     console.error(error);
 })
 
-const options = {
+
+ const options = {
     definition: {
-        openapi: "3.0.0",
-        info: {
-            title: "BLOG CRUD API",
-            version: "1.0.0",
-            description: "A simple blog API"
+       openapi: '3.0.0',
+      info: {
+        title: 'BLOG CRUD API',
+        version: '1.0.0',
+        description: "A simple blog API",
+      },
+      paths: {},
+      security: [
+        {
+          bearerAuth: [],
         },
-        servers: [
-            {
-                url: "https://portifolio-leandre-blog.herokuapp.com"
-            },
-        ],  
-    },
-    apis: ["./routes/*.js"]
-};
+      ],
+      components: {
+          securitySchemes: {
+            bearerAuth: {
+              type: 'http',
+              scheme: 'bearer',
+              bearerFormat: 'JWT',
+              name: 'bearerAuth',
+              in: 'header'
+            }
+          }
+      },
+    servers: [
+        {
+            url: "https://portifolio-leandre-blog.herokuapp.com",
+            url: "http://localhost:3000"
+        },
+], 
+    },  
+      apis: ["./routes/*.js"],
+  }
+
 const specs = swaggerJsDoc(options)
 
   const app = express();

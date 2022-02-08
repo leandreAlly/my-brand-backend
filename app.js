@@ -50,8 +50,7 @@ mongoose.connect("mongodb+srv://leandre:Ally0788!@cluster0.vnywd.mongodb.net/myF
       },
     servers: [
         {
-            url: "https://portifolio-leandre-blog.herokuapp.com",
-            url: "http://localhost:3000"
+            url: "https://portifolio-leandre-blog.herokuapp.com"
         },
 ], 
     },  

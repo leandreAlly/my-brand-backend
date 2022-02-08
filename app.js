@@ -13,7 +13,7 @@ const dotenv = require("dotenv").config();
 
 
 // Connecting MongDB
-mongoose.connect("mongodb://localhost:27017/acmedb", { useNewUrlParser: true })
+mongoose.connect("mongodb+srv://leandre:Ally0788!@cluster0.vnywd.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", { useNewUrlParser: true })
 .then(() => {
     console.log('Successfully connected to MongoDB !');//validation if it is connected
 })
@@ -32,7 +32,7 @@ const options = {
         },
         servers: [
             {
-                url: "http://localhost:3000"
+                url: "https://portifolio-leandre-blog.herokuapp.com"
             },
         ],  
     },

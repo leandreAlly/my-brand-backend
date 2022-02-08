@@ -69,4 +69,9 @@ app.use('/api/post',articleRoutes);
 app.use('/api/auth', userRoutes);
 app.use('/api/like', likeRoutes);
 
+app.get('/', (req,res) => {
+    res.send("Welcome to Blog API!")
+   
+});
+
 module.exports = app;

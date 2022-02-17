@@ -12,16 +12,19 @@ const swaggerJsDoc = require("swagger-jsdoc");
 const dotenv = require("dotenv").config();
 
 
-// Connecting MongDB
-mongoose.connect("mongodb+srv://leandre:Ally0788!@cluster0.vnywd.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", { useNewUrlParser: true })
-.then(() => {
-    console.log('Successfully connected to MongoDB !');//validation if it is connected
-})
-.catch((error) => {
-    console.log('Unable to connect to MongoDB !');//Return error if it not connected 
-    console.error(error);
-})
+let database = process.env.NODE_ENV === 'dev' ? process.env.DB_URL
+                                              : process.env.DB_URL_TEST;
 
+    mongoose
+    .connect(database,{ useNewUrlParser: true})
+    .then(() => {
+        console.log('Successfully connected to MongoDB !');
+    })
+    .catch((error) => {
+        console.log('Unable to connect to MongoDB !');
+        console.error(error);
+    })
+    
 
  const options = {
     definition: {

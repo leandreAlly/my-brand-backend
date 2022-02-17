@@ -1,19 +1,20 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "description": "",
   "main": "server.js",
   "scripts": {
     "start": "nodemon --exec node_modules/.bin/babel-node server.js",
-    "devstart": "nodemon --exec node_modules/.bin/babel-node server.js",
-    "mocha": " mocha --timeout=5000 --exit",
-    "test": "mocha",
-    "coverage": "nyc --reporter=text npm run test"
+    "test": "NODE_ENV=test && mocha --require @babel/register --timeout=100000 ",
+    "coverage": "nyc --reporter=lcov --reporter=text npm run test"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@babel/cli": "^7.17.0",
+    "@babel/core": "^7.17.0",
+    "@babel/node": "^7.16.8",
+    "@babel/preset-env": "^7.16.11",
     "@hapi/joi": "^17.1.1",
     "bcrypt": "^5.0.1",
     "cross-env": "^7.0.3",
@@ -21,13 +22,10 @@
     "express": "^4.17.2",
     "jest": "^27.5.0",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^6.1.8",
-    "@babel/cli": "^7.17.0",
-    "@babel/core": "^7.17.0",
-    "@babel/node": "^7.16.8",
-    "@babel/preset-env": "^7.16.11"
+    "mongoose": "^6.1.8"
   },
   "devDependencies": {
+    "@babel/plugin-transform-runtime": "^7.17.0",
     "chai": "^4.3.6",
     "chai-http": "^4.3.0",
     "cors": "^2.8.5",
@@ -40,5 +38,17 @@
     "swagger-jsdoc": "^6.1.0",
     "swagger-ui-express": "^4.3.0",
     "yamljs": "^0.3.0"
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leandreAlly/my-brand-backend.git"
+  },
+  "bugs": {
+    "url": "https://github.com/leandreAlly/my-brand-backend/issues"
+  },
+  "homepage": "https://github.com/leandreAlly/my-brand-backend#readme",
+  "description": ""
 }

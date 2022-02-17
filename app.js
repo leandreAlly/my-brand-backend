@@ -51,11 +51,10 @@ let database = process.env.NODE_ENV === 'dev' ? process.env.DB_URL
             }
           }
       },
-    servers: [
-        {
-            url: "https://portifolio-leandre-blog.herokuapp.com"
-        },
-], 
+      servers:[
+        {url: 'http://localhost:3000'},
+        {url: 'https://portifolio-leandre-blog.herokuapp.com'}
+      ],
     },  
       apis: ["./routes/*.js"],
   }
